@@ -1,0 +1,292 @@
+@charset "utf-8";
+
+body, div, ul, li {
+    margin: 0;
+    padding: 0;
+    font: 15px arial, sans-serif;
+}
+
+a:link {
+    color: #DC430A;
+    text-decoration: none;
+}
+
+a:active {
+    color: #DC430A;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #DC430A;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+#header {
+    width: 842px;
+    margin: 0 auto;
+    padding-top: 10px;
+    color: #333;
+}
+
+.ih_fl {
+    float: left;
+    font-size: 14px;
+}
+
+.ih_fr {
+    float: right;
+}
+
+#main {
+    width: 842px;
+    margin: 0 auto;
+}
+
+#logo {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#logo img {
+    border: 0;
+}
+
+#form {
+    margin: 20px auto 20px 100px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+/*查询域名框*/
+.domainSearchDiv {
+    margin: 65px auto auto 170px;
+    padding-bottom: 10px;
+}
+
+.Searchinfo {
+    text-align: center;
+    margin-top: 38px;
+}
+
+.domainSearchHolder {
+    float: left;
+    padding: 0;
+    margin: 0;
+    border: 3px solid #ff6600;
+}
+
+.domainSearchBox {
+    position: relative;
+    float: left;
+    width: 390px;
+    height: 33px;
+    padding: 0;
+    margin-right: 5px;
+    display: inline;
+    background-color: #fff;
+}
+
+.domainSearchButton {
+    float: left;
+    width: 100px;
+    height: 20px;
+    padding: 0 0 0 0
+}
+
+#button_a {
+    min-width: 30px;
+    width: 100px;
+    height: 33px;
+    font-size: 18px;
+    line-height: 15px;
+    padding-top: 3px;
+}
+
+.searchInput {
+    position: relative;
+    float: left;
+    width: 245px;
+    height: 25px;
+    line-height: 22px;
+    margin: 3px 0 0 0;
+    padding: 1px 0 1px 5px;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Trebuchet MS, Arial, Sans-Serif;
+    color: #666666;
+    border: 0;
+    outline: 0;
+    vertical-align: top;
+    background: none repeat scroll 0 0 transparent;
+    z-index: 3;
+}
+
+.searchTld {
+    position: relative;
+    float: left;
+    width: 95px;
+    height: 27px;
+    line-height: 25px;
+    margin: 2px 0 2px 0;
+    padding: 1px 0 1px 12px;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Trebuchet MS, Arial, Sans-Serif;
+    color: #000;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 1px solid #ff6600;
+    border-right: 0;
+    vertical-align: top;
+}
+
+.searchToggle-arrow {
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 0 3px 0;
+    cursor: pointer;
+    margin: 2px 0 2px 0;
+}
+
+.searchToggle {
+    position: relative;
+    float: right;
+    width: 30px;
+    height: 19px;
+    display: inline-block;
+    background-color: #999;
+    border: 1px solid #707070;
+}
+
+.tlds {
+    display: none;
+    position: absolute;
+    width: 138px;
+    height: 120px;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    top: 31px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    list-style: none;
+    background-color: #fff;
+    border-left: 1px solid #ff6600;
+    border-right: 1px solid #ff6600;
+    border-bottom: 1px solid #ff6600;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, .25);
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .25);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .25);
+    z-index: 2
+}
+
+.tlds li {
+    cursor: pointer;
+    padding: 0 0 0 10px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.g-btn-prg, .g-btn-prg:link, .g-btn-prg:visited, .g-btn-prg-inactive {
+    display: inline-block;
+    background: #ff6600;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #ff6600;
+    text-align: center;
+    cursor: pointer;
+}
+
+.footer {
+    clear: both;
+    text-align: center;
+    padding-top: 30px;
+    line-height: 30px;
+}
+
+.banner {
+    text-align: center;
+    margin: 30px auto;
+    width: 548px;
+    color: #FFF;
+    padding-left: 15px;
+}
+
+.banner ul li {
+    float: left;
+    list-style: none;
+    background: #999;
+    margin: 1px;
+    padding: 20px 3px 20px 3px;
+    width: 100px;
+    font-weight: bold;
+    line-height: 25px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.gonggao ul li {
+    clear: both;
+    background: none;
+    margin: 0 5px 0 5px;
+    padding: 0;
+    text-align: left;
+    width: 195px;
+    font-size: 12px;
+}
+
+.gonggao h1 {
+    font-size: 14px;
+    margin: 0 5px 0 5px;
+    padding: 0;
+    text-align: left;
+}
+
+.gonggao a:link {
+    color: #FFF;
+}
+
+.gonggao a:active {
+    color: #FFF;
+}
+
+.gonggao a:visited {
+    color: #FFF;
+}
+
+.gonggao a:hover {
+    color: #FFCBB3;
+}
+
+.bottom {
+    color: #939393;
+    margin-bottom: 20px;
+}
+
+.bottom a:link {
+    color: #939393;
+}
+
+.bottom a:active {
+    color: #939393;
+}
+
+.bottom a:visited {
+    color: #939393;
+}
+
+.bottom a:hover {
+    color: #939393;
+}

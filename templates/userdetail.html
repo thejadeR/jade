@@ -1,0 +1,187 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人中心 - JadeJade</title>
+
+
+<link href="{% static 'css/default.css' %}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{% static 'js/stats.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-webox.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/default.js' %}"></script>
+
+<link rel="shortcut icon" href="{% static 'uploadimg/index/favicon.ico' %}" type="image/x-icon" />
+
+</head>
+<body>
+<div style="height:50px; font-size:14px; background-color:#ff6600; border-bottom:1px solid #F0F0F0;">
+  <div id="header">
+    <a href="{% url 'jadejade:index' %}"><img src="{% static 'uploadimg/index/logo.png' %}" width="87" height="50" alt="Me.TL" title="返回首页" /></a>
+    <ul><li class="selected1"><a href="{% url 'jadejade:userdetail' %}">账户管理</a></li><li><a href="{% url 'jadejade:helpCenter' %}">帮助中心</a></li><li><a href="{% url 'mtwSite:index' %}">前往首页</a></li></ul>
+    <span>{{ uname }} [ <a href="{% url 'jadejade:logout' %}">退出</a> ]</span>
+  </div>
+</div>
+<div id="main">
+<div class="u_left">
+<ul><li class="selected2"><a href="{% url 'jadejade:userdetail' %}">我的资料</a></li><li><a href="{% url 'jadejade:findpassword' %}">修改密码</a></li></ul>
+
+
+</div><script type="text/javascript">
+$(document).ready(function(){
+	//内嵌弹出层调用
+	$('#yz').click(function(){
+		$("#codeimg").html("<img src=\"get/code.php?{$=ii_random(12)}\" title=\"看不清？点击换一张\" onclick=\"this.src='get/code.php?' + Math.floor(Math.random() * 99999 + 1)\" style=\"CURSOR:hand; CURSOR:pointer\" />");
+		$.webox({
+			height:220,
+			width:330,
+			bgvisibel:true,
+			title:'发送验证邮件',
+			html:$("#yz_box").html()
+		});
+	});
+	$('#jh').click(function(){
+		$("#codeimg2").html("<img src=\"get/code.php?{$=ii_random(12)}\" title=\"看不清？点击换一张\" onclick=\"this.src='get/code.php?' + Math.floor(Math.random() * 99999 + 1)\" style=\"CURSOR:hand; CURSOR:pointer\" />");
+		$.webox({
+			height:220,
+			width:330,
+			bgvisibel:true,
+			title:'发送激活邮件',
+			html:$("#jh_box").html()
+		});
+	});
+	$('#xg').click(function(){
+		$.webox({
+			height:190,
+			width:330,
+			bgvisibel:true,
+			title:'修改Email',
+			html:$("#xg_box").html()
+		});
+	});
+})
+
+//关闭弹出层
+function closediv(){
+	$('.webox').css({display:'none'});
+	$('.background').css({display:'none'});
+}
+</script>
+<div id="yz_box" style="display:none;">
+  <div class="iframe_box" >
+
+  <form method="post" action="user-info.php">
+        {% csrf_token %}
+  <table width="100%" border="0" cellspacing="0">
+    <tr>
+      <th scope="row" align="right">验证码：</th>
+      <td><input type="text" name="secode" id="secode" style="width:180px" /></td>
+    </tr>
+  </table>
+  <p align="center" id="codeimg"></p>
+  <p align="center"><input type="submit" value="确定" class="webox_button button" /><input type="button" value="取消" class="webox_button button" onclick="closediv()" /></p>
+  </form>
+
+
+  </div>
+</div>
+<div id="jh_box" style="display:none;">
+  <div class="iframe_box" >
+  <form method="post" action="user-info.php?act=jh">
+        {% csrf_token %}
+  <table width="100%" border="0" cellspacing="0">
+    <tr>
+      <th scope="row" align="right">验证码：</th>
+      <td><input type="text" name="secode" id="secode" style="width:180px" /></td>
+    </tr>
+  </table>
+  <p align="center" id="codeimg2"></p>
+  <p align="center"><input type="submit" value="确定" class="webox_button button" /><input type="button" value="取消" class="webox_button button" onclick="closediv()" /></p>
+  </form>
+  </div>
+</div>
+
+
+<div id="xg_box" style="display:none;">
+  <div class="iframe_box" >
+
+  <form method="post" action="{% url 'jadejade:modifyemail' %}">
+      {% csrf_token %}
+  <table width="100%" border="0" cellspacing="0">
+    <tr>
+      <th scope="row" align="right">账号密码：</th>
+      <td><input type="password" name="upassword" id="password" style="width:180px" /></td>
+    </tr>
+    <tr>
+      <th scope="row" align="right">新Email：</th>
+      <td><input type="text" name="uemail" id="email" style="width:180px" /></td>
+    </tr>
+  </table>
+  <p align="center">
+      <input type="submit" value="确定" class="webox_button button" />
+      <input type="button" value="取消" class="webox_button button" onclick="closediv()" />
+  </p>
+
+  </form>
+
+  </div>
+</div>
+
+  <div class="u_right">
+  <table width="720" border="0" cellspacing="0">
+  <tr>
+    <th width="150" align="right" scope="row">用户名：</th>
+    <td width="570">{{ uname }}</td>
+    </tr>
+
+  <tr>
+    <th align="right" scope="row">Email：</th>
+    <td>{{ uemail }}<span style="color:#090">已验证</span> [ <a id="xg" href="javascript:void(0);">修改</a> ]</td>
+    </tr>
+  <tr>
+    <th align="right" scope="row">用户组：</th>
+    <td>注册用户</td>
+    </tr>
+
+{#  <tr>#}
+{#    <th align="right" scope="row">等级：</th>#}
+{#    <td style="line-height:12px"><img src="https://www.mite5.com/static/image/star_level2.gif" width="16" height="16" title="6级" /><img src="https://www.mite5.com/static/image/star_level1.gif" width="16" height="16" title="6级" /><img src="https://www.mite5.com/static/image/star_level1.gif" width="16" height="16" title="6级" /></td>#}
+{#    </tr>#}
+
+{#  <tr>#}
+{#    <th align="right" scope="row">经验：</th>#}
+{#    <td>526</td>#}
+{#    </tr>#}
+
+{#  <tr>#}
+{#    <th align="right" scope="row">积分：</th>#}
+{#    <td>100 [ <a href="user-add-coins.php">获取积分</a> ]</td>#}
+{#    </tr>#}
+
+  <tr>
+    <th align="right" scope="row">注册时间：</th>
+    <td>{{ uFirstTime }}</td>
+    </tr>
+
+{#  <tr>#}
+{#    <th align="right" scope="row">登录次数：</th>#}
+{#    <td>9</td>#}
+{#    </tr>#}
+
+  <tr>
+    <th align="right" scope="row">帐号状态：</th>
+    <td><span style="color:#090">正常</span></td>
+    </tr>
+</table>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="footer">
+Copyright &copy; 2019 JadeJade(<a href="{% url 'jadejade:index' %}">JadeJade.club</a>)
+</div>
+
+</div>
+</body>
+</html>

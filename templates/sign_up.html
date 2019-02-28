@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户注册 - JadeJade</title>
+
+<link href="{% static 'css/default.css' %}" rel="stylesheet" type="text/css" />
+
+<link rel="shortcut icon" href="{% static 'uploadimg/index/favicon.ico' %}" type="image/x-icon" />
+
+</head>
+<body>
+<div style="height:50px; font-size:14px; background-color:#ff6600; border-bottom:1px solid #F0F0F0;">
+<div id="header">
+<a href="{% url 'jadejade:index' %}"><img src="{% static 'uploadimg/index/logo.png' %}" width="87" height="50" alt="Me.TL" title="返回首页" /></a>
+<div>新用户注册</div>
+<span><a href="{% url 'jadejade:sign_in' %}">登录</a> | <a href="{% url 'jadejade:sign_up' %}">注册</a></span>
+</div>
+</div>
+<div id="main">
+  <div class="m_left">
+    <form name="form" method="post" action="{% url 'jadejade:sign_up' %}" id="submitform">
+        {% csrf_token %}
+      <p>
+        用户名<br />
+        <input class="m_left_text" type="text" name="uname" value="" id="uname" /> <span id="tips2" class="msg_error"></span>
+      </p>
+      <p>
+        密码<br />
+        <input class="m_left_text" type="password" name="upassword" id="upassword" /> <span id="tips3" class="msg_error"></span>
+      </p>
+      <p>
+        重复密码<br />
+        <input class="m_left_text" type="password" name="upassword2" id="upassword2" /> <span id="tips4" class="msg_error"></span>
+      </p>
+      <p>
+        电子邮箱<br />
+        <input class="m_left_text" type="text" name="uemail" value="" id="uemail" /> <span id="tips5" class="msg_error"></span>
+      </p>
+      <p>
+        验证码<br />
+        <input class="m_left_text" type="text" name="code" id="verycode" /> <span id="tips7" class="msg_error"></span>
+      </p>
+
+{#      <p id="pcode" ><img id="getcode" src="{% static 'img/code.png' %}" title="看不清？点击换一张"  style="CURSOR:hand; CURSOR:pointer" /></p>#}
+        <p id="pcode" ></p>
+      <p>
+        <input class="m_left_button button" style="width:180px;font-size:15px;" type="button" value="同意以下协议并注册" id="reg"/>
+      </p>
+      <p style="margin-left:25px;"><a href="{% url 'jadejade:userAgreement' %}" target="_blank">《JadeaJade网用户协议》</a></p>
+
+        <p><span id="tips6" class="msg_error"></span></p>
+    </form>
+  </div>
+  <div class="m_right">
+    <p>已经有帐号？<a href="{% url 'jadejade:sign_in' %}">请登录</a></p>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="footer">
+Copyright &copy; 2019 JadeJade(<a href="{% url 'jadejade:index' %}">JadeJade.club</a>)
+</div>
+
+</div>
+<script type="text/javascript" src="{% static 'js/jquery-3.2.1.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/stats.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/sign_up.js' %}"></script>
+
+
+</body>
+</html>

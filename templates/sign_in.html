@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户登录 - JadeJade</title>
+
+    <link href="{% static 'css/default.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="{% static 'uploadimg/index/favicon.ico' %}">
+    <script type="text/javascript" src="{% static 'js/stats.js' %}"></script>
+
+</head>
+<body>
+<div style="height:50px; font-size:14px; background-color:#ff6600; border-bottom:1px solid #F0F0F0;">
+<div id="header">
+<a href="{% url 'jadejade:index' %}"><img src="{% static 'uploadimg/index/logo.png' %}" width="87" height="50" alt="Me.TL" title="返回首页" /></a>
+<div>用户登录</div>
+<span><a href="{% url 'jadejade:sign_in' %}">登录</a> | <a href="{% url 'jadejade:sign_up' %}">注册</a></span>
+</div>
+</div>
+<div id="main">
+  <div class="m_left">
+  <div class="msg_error"></div>
+
+    <form name="form" method="post" action="{% url 'jadejade:sign_in' %}">
+        {% csrf_token %}
+      <p>
+        用户名<br />
+        <input class="m_left_text" type="text" name="uname" size="38" value="" />
+      </p>
+      <p>
+        密码<br />
+  <input class="m_left_text" type="password" name="upassword" size="38" />
+        </p>
+
+{#      <p>#}
+{#        <input type="checkbox" name="login_remember" id="login_remember" value="1" />#}
+{#        <label for="login_remember">记住登录状态</label>#}
+{#      </p>#}
+
+      <p>
+        <input class="m_left_button button" type="submit" value="登 录" />&nbsp;&nbsp;
+
+          {% if err %}
+            <span>{{ err }}</span>
+          {% endif %}
+      </p>
+
+
+
+    </form>
+  </div>
+  <div class="m_right">
+    <p>&raquo; 还没有帐号？<a href="{% url 'jadejade:sign_up' %}">立即注册</a>， 忘记密码？<a href="getpassword.php">立即找回</a></p>
+
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="footer">
+Copyright &copy; 2019 JadeJade(<a href="{% url 'jadejade:index' %}">JadeJade.club</a>)
+</div>
+
+</div>
+</body>
+</html>

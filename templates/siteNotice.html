@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>网站公告 - JadeJade</title>
+
+<link href="{% static 'css/default.css' %}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{% static 'js/stats.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-webox.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/default.js' %}"></script>
+</head>
+
+<body>
+
+
+<div style="height:50px; font-size:14px; background-color:#ff6600; border-bottom:1px solid #F0F0F0;">
+
+    <div id="header">
+        <a href="{% url 'jadejade:index' %}">
+            <img src="{% static 'uploadimg/index/logo.png' %}" width="87" height="50" alt="Me.TL" title="返回首页"/>
+        </a>
+        <ul>
+            <li><a href="{% url 'jadejade:siteNotice' %}">网站公告</a></li>
+            <li><a href="{% url 'jadejade:helpCenter' %}">帮助中心</a></li>
+            <li><a href="{% url 'jadejade:aboutJadeJade' %}">关于我们</a></li>
+        </ul>
+{#        <span><a href="{% url 'mtwSite:sign_in' %}">登录</a> | <a href="{% url 'mtwSite:sign_up' %}">注册</a></span>#}
+
+        {% if uname %}
+            <span>{{ uname }}[<a href="{% url 'jadejade:userdetail' %}">用户中心</a> | <a href="{% url 'jadejade:logout' %}">退出</a>]</span>
+        {% else %}
+            <span><a href="{% url 'jadejade:sign_in' %}">登录</a> | <a href="{% url 'jadejade:sign_up' %}">注册</a></span>
+        {% endif %}
+    </div>
+
+</div>
+
+<div id="main">
+
+{#<div class="a_left">#}
+{#<div class="widget">#}
+{#    <form id="search" method="get" action="article-list.php">#}
+{#    <input type="text" name="str" class="text" size="23" value="" /> <input type="submit" class="button" value="搜索" />#}
+{#    </form>#}
+{#</div>#}
+{##}
+{#    #}
+{#</div>#}
+
+
+    <div class="a_right">
+  <div class="tit_bar2">网站公告</div>
+    <table class="table_list article" width="670" border="0" cellspacing="0" style="word-break:break-all; word-wrap:break-all; color: #666;">
+    <tr>
+  <td width="590"><font color="#FF6600">[置顶]</font> <a href="#">建站第一天</a></td>
+  <td width="80">2018-03-28</td>
+  </tr>
+
+	</table>
+
+{#<div class="pageidshow"> [ 1 ]  <a href="article-list.php?classify=1&page=2">[ 2 ]</a>  <a href="article-list.php?classify=1&page=2">[ 下页 ]</a> <a href="article-list.php?classify=1&page=2">[ 末页 ]</a> - [ 共 2 页, 36 条 ] </div>#}
+
+  </div>
+
+</div>
+<div class="clearfix"></div>
+<div class="footer">
+
+Copyright &copy; 2019 JadeJade(<a href="{% url 'jadejade:index' %}">JadeJade.club</a>)
+</div>
+
+</div>
+</body>
+</html>
