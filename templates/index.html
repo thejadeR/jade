@@ -63,66 +63,7 @@
         <script src="{% static 'js/search.js' %}" type="text/javascript"></script>
 
 
-        <script type="text/javascript">
-            $(function () {
-                $(".domainSearchHolder").gdhpDomainSearch();
-            });
-        </script>
 
-        <script language="javascript">
-            console.log('进入搜索框js')
-
-            function setnull() {
-                var d = document.getElementById('domain');
-                if (d.value == '搜索框') d.value = '';
-            }
-
-            // 检查空
-            function checknull() {
-                var d = document.getElementById('domain');
-                if (d.value == '') d.value = '搜索框';
-            }
-
-            function showregchk() {
-                document.getElementById('query_info').style.display = '';
-                var domain = encodeURIComponent($.trim(document.getElementById('domain').value));
-                var searchTldName = $.trim(document.getElementById('searchTldName').value);
-                var TldName;
-                switch (searchTldName) {
-                    case ".cr.cx":
-                        TldName = "3";
-                        break;
-                    case ".660v.com":
-                        TldName = "2";
-                        break;
-                    case ".ss06.com":
-                        TldName = "4";
-                        break;
-                    case ".me.tl":
-                        TldName = "1";
-                        break;
-                    case ".6v.cx":
-                        TldName = "6";
-                        break;
-                    default:
-                        TldName = "1";
-                }
-                if (domain == encodeURIComponent('搜索框')) {
-                    document.getElementById('query_info').innerHTML = '您还没有输入您要搜索的东西哦';
-                    return;
-                }
-
-                document.getElementById('query_info').innerHTML = '正在为您查询，请稍后...';
-                var url = "127.0.0.1/get/checkdomain?tld=" + TldName + "&domain=" + domain;
-
-                $.get(url, {}, function (data) {
-                        var result = $.trim(data);
-                        document.getElementById('query_info').style.display = '';
-                        document.getElementById('query_info').innerHTML = result;
-                    }
-                )
-            }
-        </script>
 
 
         <div class="banner">
@@ -135,8 +76,8 @@
                     <h1>最新公告</h1>
 
                     <ul>
-                        <li><a href="article-content.php?id=68">网站新增</a></li>
-                        <li><a href="article-content.php?id=65">因为网站迁移至...</a></li>
+                        <li><a href="#">网站新增</a></li>
+                        <li><a href="#">因为网站迁移至...</a></li>
                     </ul>
 
                 </li>
